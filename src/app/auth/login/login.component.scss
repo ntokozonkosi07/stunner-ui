@@ -1,0 +1,18 @@
+.loginComponent{
+    display: flex;
+    flex-direction: column;
+
+    div {
+        padding: 10px 0;
+    
+        &.routes {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            a {
+                font-size: 14px;
+            }
+        }
+    }
+}

@@ -1,1 +1,36 @@
+@import './app/styles/variables';
+
 /* You can add global styles to this file, and also import other style files */
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+html, body {
+    height: 100%;
+    background-color: var(--cream);
+}
+
+input {
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid var(--gray);
+    width: 100%;
+
+    &:focus {
+        box-shadow: 0 0 5px var(--blue);
+        outline: none;
+    }
+}
+
+p {
+    color: var(--dark-gray);
+    margin: 0 0 5px 0;
+}
+
+input[type=button]{
+    cursor: pointer;
+}

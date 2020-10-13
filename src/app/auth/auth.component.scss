@@ -1,0 +1,36 @@
+@import './../styles/variables';
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    
+    .login {
+        background-color: var(--white);
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 5px;
+        padding: 24px 54px;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: stretch;
+            margin: 25px 54px 0 54px;
+
+            &.logo {
+                height: 100px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 42px;
+                font-weight: 100;
+            }
+        }
+
+        
+    }
+}

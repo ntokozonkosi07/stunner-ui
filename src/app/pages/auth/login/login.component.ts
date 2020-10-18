@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ErrorWrapper } from 'src/app/model/error-wrapper.model';
 import { Login } from 'src/app/model/login.model';
 
-import { AuthService } from './../../services/auth.service';
+import { AuthService } from './../../../services/auth.service';
 
 @Component({
     templateUrl: './login.component.html',

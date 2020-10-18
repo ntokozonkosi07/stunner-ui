@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
-import { CustomvalidationService } from './../../services/validators/custom-validators.service';
-import { AuthService } from './../../services/auth.service';
+import { CustomvalidationService } from './../../../services/validators/custom-validators.service';
+import { AuthService } from './../../../services/auth.service';
 import { Signup } from 'src/app/model/signup.model';
 
 @Component({

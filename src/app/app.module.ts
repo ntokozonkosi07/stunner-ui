@@ -8,13 +8,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
-import { AuthComponent } from './auth/auth.component';
-import { LoginComponent } from './auth/login/login.component';
+import { AuthComponent } from './pages/auth/auth.component';
+import { LoginComponent } from './pages/auth/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+import { ForgotPasswordComponent } from './pages/auth/forgot-password/forgot-password.component';
 import { AuthService } from './services/auth.service';
 import { CustomvalidationService } from './services/validators/custom-validators.service';
-import { SignupComponent } from './auth/signup/signup.component';
+import { SignupComponent } from './pages/auth/signup/signup.component';
 import { ErrorInterceptor } from './services/interceptors/error.interceptor';
 
 

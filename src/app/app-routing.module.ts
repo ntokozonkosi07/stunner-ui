@@ -1,5 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
+
 import { AuthComponent } from './auth/auth.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -22,8 +26,9 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes, { useHash: true })
   ],
-  exports: [RouterModule]
+  exports: [RouterModule, ReactiveFormsModule]
 })
 export class AppRoutingModule { }

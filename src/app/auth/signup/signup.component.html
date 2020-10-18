@@ -1,28 +1,56 @@
 <div class="signupComponent">
-    <div class="navigation">
-        <input type="button" value="Back to login" (click)="backToLogin($event)" />
-    </div>
-    <div>
-        <p>Name</p>
-        <input type="text" name="" placeholder="Please enter name" id="">
-    </div>
-    <div>
-        <p>Last name</p>
-        <input type="text" name="" placeholder="Please last name" id="">
-    </div>
-    <div>
-        <p>Email</p>
-        <input type="text" name="" placeholder="Please enter email" id="">
-    </div>
-    <div>
-        <p>Password</p>
-        <input type="password" name="" placeholder="Please enter password" id="">
-    </div>
-    <div>
-        <p>Confirm Password</p>
-        <input type="password" name="" placeholder="Please confirm password" id="">
-    </div>
-    <div>
-        <input type="button" value="Signup">
-    </div>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm.value)">
+        <div class="navigation">
+            <input type="button" value="Back to login" (click)="backToLogin($event)" />
+        </div>
+        <div>
+            <div>
+                <p class="error-msg" *ngFor="let e of errors">{{e.message}}</p>
+            </div>
+        </div>
+        <div>
+            <p>Name</p>
+            <input type="text" [ngClass]="{'error': f.name.touched && f.name.errors}" formControlName="name" name="" placeholder="Please enter name" id="">
+            <div *ngIf="f.name.touched && f.name.errors">
+                <p *ngIf="f.name.errors.required" class="error-msg">This field is required!</p>
+            </div>
+        </div>
+        <div>
+            <p>Last name</p>
+            <input type="text" [ngClass]="{'error': f.lastName.touched && f.lastName.errors}" formControlName="lastName" name="" placeholder="Please last name" id="">
+            <div *ngIf="f.lastName.touched && f.lastName.errors">
+                <p *ngIf="f.lastName.errors.required" class="error-msg">This field is required!</p>
+            </div>
+        </div>
+        <div>
+            <p>Email</p>
+            <input type="text" [ngClass]="{'error': f.email.touched && f.email.errors}" formControlName="email" name="" placeholder="Please enter email" id="">
+            <div *ngIf="f.email.touched && f.email.errors">
+                <p *ngIf="f.email.errors.required" class="error-msg">This field is required!</p>
+                <p *ngIf="f.email.errors.email" class="error-msg">Incorrect email format!</p>
+            </div>
+        </div>
+        <div>
+            <p>Password</p>
+            <input type="password" formControlName="password" [ngClass]="{'error': f.password.touched && f.password.errors}" name="" placeholder="Please enter password" id="">
+            <div *ngIf="f.password.touched && f.password.errors">
+                <p *ngIf="f.password.errors.required" class="error-msg">This field is required</p>
+                <p *ngIf="f.password.errors.invalidPassword" class="error-msg">Password should have atleast one Uppercase alphabet</p>
+                <p *ngIf="f.password.errors.invalidPassword" class="error-msg">Password should have atleast one lowercase alphabet</p>
+                <p *ngIf="f.password.errors.invalidPassword" class="error-msg">Password should have atleast one number</p>
+            </div>
+        </div>
+        <div>
+            <p>Confirm Password</p>
+            <input type="password" formControlName="confirmPassword" [ngClass]="{'error': f.confirmPassword.touched && f.confirmPassword.errors}" name="" placeholder="Please confirm password" id="">
+            <div>
+                <p *ngIf="f.confirmPassword.touched && f.confirmPassword.errors" class="error-msg">
+                    Password you entered does not match!
+                </p>
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="Signup">
+        </div>
+    </form>
 </div>

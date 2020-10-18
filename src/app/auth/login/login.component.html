@@ -1,20 +1,31 @@
 <div class="loginComponent">
-    <div>
-        <p>Email</p>
-        <input type="text" name="" placeholder="Please enter email" id="">
-    </div>
-    <div>
-        <p>Password</p>
-        <input type="password" name="" placeholder="Please enter password" id="">
-    </div>
-    <div>
-        <input type="button" value="login">
-    </div>
-    <div class="routes">
-        <div> <a [routerLink]="['/auth/forgot-password']">Forgot password?</a></div>
-        <div>|</div>
+    <form [formGroup]="loginForm" (submit)="login(loginForm.value)">
         <div>
-            Don't have an account <a [routerLink]="['/auth/signup']">Signup</a>
+            <p class="error-msg" *ngFor="let e of error.errors">{{e.message}}</p>
         </div>
-    </div>
+        <div>
+            <p>Email</p>
+            <input type="text" name="" [ngClass]="{'error': f.username.touched && f.username.errors}" formControlName="username" placeholder="Please enter email" id="">
+            <div *ngIf="f.username.touched && f.username.errors">
+                <p class="error-msg">This field is required</p>
+            </div>
+        </div>
+        <div>
+            <p>Password</p>
+            <input type="password" name="" [ngClass]="{'error': f.password.touched && f.password.errors}" formControlName="password" placeholder="Please enter password" id="">
+            <div *ngIf="f.password.touched && f.password.errors">
+                <p class="error-msg">This field is required</p>
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="login">
+        </div>
+        <div class="routes">
+            <div> <a [routerLink]="['/auth/forgot-password']">Forgot password?</a></div>
+            <div>|</div>
+            <div>
+                Don't have an account <a [routerLink]="['/auth/signup']">Signup</a>
+            </div>
+        </div>
+    </form>
 </div>

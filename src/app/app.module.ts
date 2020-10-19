@@ -16,6 +16,9 @@ import { AuthService } from './services/auth.service';
 import { CustomvalidationService } from './services/validators/custom-validators.service';
 import { SignupComponent } from './pages/auth/signup/signup.component';
 import { ErrorInterceptor } from './services/interceptors/error.interceptor';
+import { ServiceComponent } from './pages/service/service.component';
+import { MainContainer } from './components/main-container/main-container.component';
+import { PromptService } from './services/prompt.service';
 
 
 
@@ -25,7 +28,9 @@ import { ErrorInterceptor } from './services/interceptors/error.interceptor';
     AuthComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    SignupComponent
+    SignupComponent,
+    ServiceComponent,
+    MainContainer
   ],
   imports: [
     CommonModule,
@@ -39,6 +44,7 @@ import { ErrorInterceptor } from './services/interceptors/error.interceptor';
   providers: [
     AuthService,
     CustomvalidationService,
+    PromptService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,

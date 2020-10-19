@@ -7,6 +7,7 @@ import { ForgotPasswordComponent } from './pages/auth/forgot-password/forgot-pas
 import { LoginComponent } from './pages/auth/login/login.component';
 import { SignupComponent } from './pages/auth/signup/signup.component';
 import { ServiceComponent } from './pages/service/service.component';
+import { SecurityGuard } from './services/guards/security.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'auth' },
@@ -20,7 +21,7 @@ const routes: Routes = [
       { path: 'forgot-password', component: ForgotPasswordComponent }
     ]
   },
-  { path: 'services', component: ServiceComponent }
+  { path: 'services', component: ServiceComponent, canActivate: [SecurityGuard] }
   // {path: '**', component: HomeComponent}
 ];
 

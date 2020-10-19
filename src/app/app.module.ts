@@ -20,6 +20,8 @@ import { ServiceComponent } from './pages/service/service.component';
 import { MainContainer } from './components/main-container/main-container.component';
 import { PromptService } from './services/prompt.service';
 import { LocalStorage } from './services/storage.service';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SecurityGuard } from './services/guards/security.guard';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { LocalStorage } from './services/storage.service';
     ForgotPasswordComponent,
     SignupComponent,
     ServiceComponent,
-    MainContainer
+    MainContainer,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
@@ -45,6 +48,7 @@ import { LocalStorage } from './services/storage.service';
     CustomvalidationService,
     PromptService,
     LocalStorage,
+    SecurityGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,

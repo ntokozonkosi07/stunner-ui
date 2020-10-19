@@ -19,8 +19,7 @@ import { ErrorInterceptor } from './services/interceptors/error.interceptor';
 import { ServiceComponent } from './pages/service/service.component';
 import { MainContainer } from './components/main-container/main-container.component';
 import { PromptService } from './services/prompt.service';
-
-
+import { LocalStorage } from './services/storage.service';
 
 @NgModule({
   declarations: [
@@ -45,6 +44,7 @@ import { PromptService } from './services/prompt.service';
     AuthService,
     CustomvalidationService,
     PromptService,
+    LocalStorage,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,

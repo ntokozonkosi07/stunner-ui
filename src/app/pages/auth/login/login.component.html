@@ -1,20 +1,20 @@
 <div class="loginComponent">
     <form [formGroup]="loginForm" (submit)="login(loginForm.value)">
         <div>
-            <p class="error-msg" *ngFor="let e of error.errors">{{e.message}}</p>
+            <p class="error-msg" *ngFor="let e of (error.errors || [])">{{e.message}}</p>
         </div>
         <div>
             <p>Email</p>
-            <input type="text" name="" [ngClass]="{'error': f.username.touched && f.username.errors}" formControlName="username" placeholder="Please enter email" id="">
-            <div *ngIf="f.username.touched && f.username.errors">
-                <p class="error-msg">This field is required</p>
+            <input type="text" name="" [ngClass]="{'error': f.username.dirty && f.username.errors}" formControlName="username" placeholder="Please enter email" id="">
+            <div *ngIf="f.username.dirty">
+                <p class="error-msg" *ngIf="f.username.errors">This field is required</p>
             </div>
         </div>
         <div>
             <p>Password</p>
-            <input type="password" name="" [ngClass]="{'error': f.password.touched && f.password.errors}" formControlName="password" placeholder="Please enter password" id="">
-            <div *ngIf="f.password.touched && f.password.errors">
-                <p class="error-msg">This field is required</p>
+            <input type="password" name="" [ngClass]="{'error': f.password.dirty && f.password.errors}" formControlName="password" placeholder="Please enter password" id="">
+            <div *ngIf="f.password.dirty">
+                <p class="error-msg"  *ngIf="f.password.errors">This field is required</p>
             </div>
         </div>
         <div>

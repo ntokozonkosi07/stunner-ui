@@ -1,4 +1,6 @@
 <div class="mainContainer">
     <ng-container #errorContentHost></ng-container>
-
+    <div *ngIf="!errorTemplate">
+        <ng-content></ng-content>
+    </div>
 </div>

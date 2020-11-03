@@ -22,6 +22,7 @@ import { PromptService } from './services/prompt.service';
 import { LocalStorage } from './services/storage.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SecurityGuard } from './services/guards/security.guard';
+import { TopMenuComponent } from './components/top-menu/top-menu.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SecurityGuard } from './services/guards/security.guard';
     SignupComponent,
     ServiceComponent,
     MainContainer,
-    NavbarComponent
+    NavbarComponent,
+    TopMenuComponent
   ],
   imports: [
     CommonModule,

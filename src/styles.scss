@@ -1,3 +1,5 @@
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
 @import './app/styles/variables';
 
 /* You can add global styles to this file, and also import other style files */
@@ -29,6 +31,16 @@ input {
 p {
     color: var(--dark-gray);
     margin: 0 0 5px 0;
+}
+
+a {
+    text-decoration: none;
+    padding: 0 10px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
 }
 
 input[type=button]{

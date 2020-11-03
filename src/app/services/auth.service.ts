@@ -30,9 +30,9 @@ export class AuthService {
     }
 
     isLoggedin(): boolean {
-        const { accessToken } = JSON.parse(this.localStorage.get('jwt'));
-        if (!accessToken) return false;
+        const token= JSON.parse(this.localStorage.get('jwt'));
+        if (!token) return false;
 
-        return !this.jwtHelper.isTokenExpired(accessToken);
+        return !this.jwtHelper.isTokenExpired(token.accessToken);
     }
 }

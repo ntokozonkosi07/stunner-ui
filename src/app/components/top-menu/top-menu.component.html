@@ -1,7 +1,7 @@
 <div class="TopMenuComponent">
     <nav>
         <ul>
-            <li><a href="#">Help</a></li>
+            <!-- <li><a href="#">Help</a></li> -->
             <li><a href="#">Ntokozo Nkosi <i class="far fa-user-circle"></i></a>
                 <ul>
                     <li><a href="#">Profile</a></li>
@@ -12,7 +12,7 @@
     </nav>
     <nav class="page-menu">
         <ul>
-            <li><a href="#">Services</a></li>
+            <li><a [routerLink]="['/services']" [routerLinkActive]="['active']">Services</a></li>
             <li><a href="#">Products</a></li>
         </ul>
     </nav>

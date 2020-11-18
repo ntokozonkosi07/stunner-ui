@@ -23,6 +23,7 @@ import { LocalStorage } from './services/storage.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SecurityGuard } from './services/guards/security.guard';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
+import { ProductsComponent } from './pages/products/products.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TopMenuComponent } from './components/top-menu/top-menu.component';
     ServiceComponent,
     MainContainer,
     NavbarComponent,
-    TopMenuComponent
+    TopMenuComponent,
+    ProductsComponent,
   ],
   imports: [
     CommonModule,

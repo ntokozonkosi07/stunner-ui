@@ -24,6 +24,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SecurityGuard } from './services/guards/security.guard';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { ProductsComponent } from './pages/products/products.component';
+import { ItemComponent } from './components/items/item/item.component';
+import { ItemsComponent } from './components/items/items.component';
+import { PrincipleService } from './services/principle-service.service';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,8 @@ import { ProductsComponent } from './pages/products/products.component';
     NavbarComponent,
     TopMenuComponent,
     ProductsComponent,
+    ItemsComponent,
+    ItemComponent
   ],
   imports: [
     CommonModule,
@@ -57,7 +62,8 @@ import { ProductsComponent } from './pages/products/products.component';
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
       multi: true
-    }
+    },
+    PrincipleService
   ],
   exports: [RouterModule, ReactiveFormsModule, FormsModule],
   bootstrap: [AppComponent]

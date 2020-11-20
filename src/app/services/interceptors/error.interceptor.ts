@@ -10,6 +10,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             .pipe(
                 retry(1),
                 catchError((error: HttpErrorResponse) => {
+                    debugger;
                     if (req.headers.has('x-skip-error')) {
                         debugger;
                         return throwError({

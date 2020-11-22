@@ -9,10 +9,11 @@
 .flyout {
     position: fixed;
     top: 0;
-    right: 0;
+    right: -100%;
     bottom: 0;
     background: var(--white);
     width: 20%;
+    transition: right 0.5s ease-out 0s;
 
     div {
         &.content {
@@ -46,4 +47,8 @@
             }
         }
     }
+}
+
+.flyout-open {
+    right: 0;
 }

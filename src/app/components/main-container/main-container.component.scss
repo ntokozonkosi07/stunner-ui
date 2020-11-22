@@ -1,6 +1,49 @@
-@import './../../../styles.scss';
+@import './../../styles/variables';
 
 .mainContainer {
     width: 80%;
     margin: 0 auto;
+    position: relative;
+}
+
+.flyout {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--white);
+    width: 20%;
+
+    div {
+        &.content {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            
+            div {
+                &.header {
+                    padding: 0 0 10px 0;
+
+                    button {
+                        border-radius: 50%;
+                        padding: 5px 10px;
+                        background-color: var(--gray);
+                        border: none;
+                        
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                }
+
+                &.body {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: 200;
+                    font-size: 36px;
+                }
+            }
+        }
+    }
 }

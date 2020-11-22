@@ -27,6 +27,7 @@ import { ProductsComponent } from './pages/products/products.component';
 import { ItemComponent } from './components/items/item/item.component';
 import { ItemsComponent } from './components/items/items.component';
 import { PrincipleService } from './services/principle-service.service';
+import { NewItemComponent } from './components/items/new-item/new-item.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { PrincipleService } from './services/principle-service.service';
     TopMenuComponent,
     ProductsComponent,
     ItemsComponent,
-    ItemComponent
+    ItemComponent,
+    NewItemComponent
   ],
   imports: [
     CommonModule,

@@ -10,4 +10,8 @@ export class ItemsComponent implements OnInit{
     items: any[];
 
     ngOnInit(): void { }
+
+    addNewItem(){
+        debugger;
+    }
 }

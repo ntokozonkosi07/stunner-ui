@@ -1,0 +1,17 @@
+@import './../../../styles/variables';
+
+:host {
+    border: 1px dashed var(--gray);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 230px;
+}
+.NewItemComponent {
+    i {
+        &.fa-plus::before {
+            font-size: 36px;
+        }
+    }
+}

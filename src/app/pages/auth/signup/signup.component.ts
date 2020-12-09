@@ -51,7 +51,6 @@ export class SignupComponent implements OnInit {
 
         this.authService.signUp(signup)
         .subscribe(res => {
-            debugger;
             this.toastr.success("Registered succesfuly")
             this.backToLogin(null);
         }, error => {

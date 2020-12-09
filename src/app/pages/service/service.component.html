@@ -1,4 +1,15 @@
-<st-main-container>
+<st-main-container >
     <st-top-menu></st-top-menu>
     <st-items [items]="services"></st-items>
 </st-main-container>
+
+<ng-template #serviceFlyoutTemplate>
+    <div class="flyout" >
+        <div class="stepper">
+            <stepper [steps]="steps"></stepper>
+        </div>
+        
+        <service-form></service-form>
+        
+    </div>
+</ng-template>

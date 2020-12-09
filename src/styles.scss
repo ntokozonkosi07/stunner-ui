@@ -55,3 +55,14 @@ input[type=button]{
 .error-msg {
     color: var(--error);
 }
+
+.circle {
+    width: 34px;
+    line-height: 34px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 12px;
+    border: 1px solid var(--cream);
+    margin-right: 5px;
+    background-color: var(--cream);
+}

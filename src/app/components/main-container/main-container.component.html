@@ -3,20 +3,18 @@
     <div *ngIf="!errorTemplate">
         <ng-content></ng-content>
     </div>
-    <!-- <div *ngIf="flyoutToggle === flyoutToggleEnum.OPEN"> -->
-        <ng-container #flyoutHost *ngTemplateOutlet="flyoutTemplate || defaultFlyoutTemplate"></ng-container>
-    <!-- </div> -->
-</div>
-
-<ng-template #defaultFlyoutTemplate>
     <div class="flyout" [ngClass]="{'flyout-open': flyoutToggle === flyoutToggleEnum.OPEN}">
         <div class="content">
             <div class="header">
                 <button (click)="closeFlyout()"><i class="fas fa-chevron-right"></i></button>
             </div>
             <div class="body">
-                No content...
+                <ng-container #flyoutHost ></ng-container>
             </div>
         </div>
     </div>
+</div>
+
+<ng-template #defaultFlyoutTemplate>
+    No flyout content...
 </ng-template>

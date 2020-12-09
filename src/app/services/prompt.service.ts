@@ -12,7 +12,7 @@ export class PromptService {
     private _showError = new Subject<any>();
     public OnShowError = this._showError.asObservable();
 
-    private _flyoutToggle = new Subject<{toggle:Flyout, template?: TemplateRef<any>}>();
+    private _flyoutToggle = new Subject<{toggle:Flyout, template?: TemplateRef<any>, context?: any}>();
     public onShowFlyout = this._flyoutToggle.asObservable();
     
 
@@ -30,15 +30,15 @@ export class PromptService {
         }
     }
 
-    showFlyout(template?: TemplateRef<any>){
+    showFlyout(template?: TemplateRef<any>, context?: any){
         this._flyoutToggle.next({
             toggle: Flyout.OPEN,
-            template
+            template,
+            context
         });
     }
 
     closeFlyout() {
-        debugger;
         this._flyoutToggle.next({toggle: Flyout.CLOSED});
     }
 }

@@ -1,0 +1,30 @@
+@import './../../styles/variables';
+
+.stepper {
+    ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+
+        li {
+            display: flex;
+            align-items: center;
+
+            .active {
+                background-color: var(--blue);
+                color: var(--cream);
+            }
+
+            &::after {
+                position: relative;
+                -webkit-box-flex: 1;
+                -ms-flex: 1;
+                flex: 1;
+                height: 1px;
+                margin: .5rem 0 0 0;
+                content: "";
+                background-color: rgba(0,0,0,0.1);
+            }            
+        }
+    }
+}

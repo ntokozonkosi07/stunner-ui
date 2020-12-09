@@ -16,7 +16,6 @@ export class ItemsComponent implements OnInit{
     ngOnInit(): void { }
 
     addNewItem(){
-        debugger;
         this.promptService.showFlyout();
     }
 }

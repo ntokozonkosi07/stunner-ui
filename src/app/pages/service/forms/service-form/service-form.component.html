@@ -1,0 +1,13 @@
+<form class="form" [formGroup]="serviceForm" (ngSubmit)="submit()">
+    <div class="content">
+        <input type="text" [ngClass]="{'error': f.name.dirty && f.name.errors}" formControlName="name" placeholder="Please enter name of service" />
+        <div *ngIf="f.name.dirty">
+            <p class="error-msg" *ngIf="f.name.errors">This field is required</p>
+        </div>
+    </div>
+    <div class="footer">
+        <div>
+            <input type="submit" value="Next" />
+        </div>
+    </div>
+</form>

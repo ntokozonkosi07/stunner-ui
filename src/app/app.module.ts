@@ -1,8 +1,8 @@
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -28,6 +28,8 @@ import { ItemComponent } from './components/items/item/item.component';
 import { ItemsComponent } from './components/items/items.component';
 import { PrincipleService } from './services/principle-service.service';
 import { NewItemComponent } from './components/items/new-item/new-item.component';
+import { StepperModule } from './components/stepper/stepper.module';
+import { ServiceForm } from './pages/service/forms/service-form/service-form.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { NewItemComponent } from './components/items/new-item/new-item.component
     ProductsComponent,
     ItemsComponent,
     ItemComponent,
-    NewItemComponent
+    NewItemComponent,
+    ServiceForm
   ],
   imports: [
     CommonModule,
@@ -52,7 +55,8 @@ import { NewItemComponent } from './components/items/new-item/new-item.component
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    StepperModule
   ],
   providers: [
     AuthService,

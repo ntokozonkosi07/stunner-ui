@@ -4,6 +4,7 @@
     width: 80%;
     margin: 0 auto;
     position: relative;
+    height: 100%;
 }
 
 .flyout {
@@ -14,16 +15,19 @@
     background: var(--white);
     width: 20%;
     transition: right 0.5s ease-out 0s;
+    height: 100%;
 
     div {
         &.content {
             display: flex;
             flex-direction: column;
             padding: 10px;
+            height: 100%;
             
             div {
                 &.header {
                     padding: 0 0 10px 0;
+                    
 
                     button {
                         border-radius: 50%;
@@ -38,12 +42,16 @@
                 }
 
                 &.body {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    font-weight: 200;
-                    font-size: 36px;
+                    height: 100%;
                 }
+
+                // &.body {
+                //     display: flex;
+                //     justify-content: center;
+                //     align-items: center;
+                //     font-weight: 200;
+                //     font-size: 36px;
+                // }
             }
         }
     }

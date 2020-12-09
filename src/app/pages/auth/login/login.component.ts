@@ -43,7 +43,6 @@ export class LoginComponent implements OnInit {
 
         this.authService.login(login)
             .subscribe(res => {
-                debugger;
                 this.localStorage.set('jwt', res);
                 this.router.navigateByUrl('/services');
             },

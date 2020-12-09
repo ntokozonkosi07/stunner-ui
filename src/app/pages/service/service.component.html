@@ -9,7 +9,7 @@
             <stepper [steps]="steps"></stepper>
         </div>
         
-        <service-form></service-form>
+        <service-form *ngIf="step === 0"></service-form>
         
     </div>
 </ng-template>

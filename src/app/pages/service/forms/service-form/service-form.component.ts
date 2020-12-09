@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { StepperService } from 'src/app/components/stepper/stepper.module';
 import { FormGroupConfig } from '../../../../model/form-group.config';
 
 export interface Service {
@@ -14,11 +15,9 @@ export interface Service {
 export class ServiceForm implements OnInit {
     serviceForm: FormGroup;
 
-    constructor(private _fb: FormBuilder){}
+    constructor(private _fb: FormBuilder, private _stepperService: StepperService){}
 
-    ngOnInit(): void {
-        this.createForm()
-    }
+    ngOnInit(): void {this.createForm()}
 
     get f() { return this.serviceForm.controls; }
 
@@ -26,16 +25,18 @@ export class ServiceForm implements OnInit {
         const config: FormGroupConfig<Service> = {
             name: ['', [Validators.required]]
         }
+        debugger;
         this.serviceForm = this._fb.group(config);
 
         return this.serviceForm;
     }
     
     submit(){
-        debugger;
         if (!this.serviceForm.valid) {
             Object.keys(this.serviceForm.controls).forEach(key => this.serviceForm.controls[key].markAsDirty());
             return;
         }
+
+        this._stepperService.nextPage();
     }
 }

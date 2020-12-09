@@ -3,6 +3,7 @@
     <div *ngIf="!errorTemplate">
         <ng-content></ng-content>
     </div>
+    <div class="backdrop"></div>
     <div class="flyout" [ngClass]="{'flyout-open': flyoutToggle === flyoutToggleEnum.OPEN}">
         <div class="content">
             <div class="header">

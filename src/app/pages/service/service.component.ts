@@ -1,5 +1,6 @@
-import { ChangeDetectorRef, Component, OnInit, TemplateRef, ViewChild } from "@angular/core";
+import { ChangeDetectorRef, Component, OnInit, TemplateRef, ViewChild, ViewContainerRef } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { StepperService } from 'src/app/components/stepper/stepper.module';
 import { PrincipleService } from 'src/app/services/principle-service.service';
 import { PromptService } from 'src/app/services/prompt.service';
 import { ServiceForm } from './forms/service-form/service-form.component';
@@ -10,10 +11,9 @@ import { ServiceForm } from './forms/service-form/service-form.component';
 })
 export class ServiceComponent implements OnInit {
 
-    serviceForm: FormGroup;
+    step: number;
 
-    @ViewChild(ServiceForm, { static: true})
-    _serviceForm: ServiceForm;
+    serviceForm: FormGroup;
 
     private _serviceFlyoutTemplate: TemplateRef<any>;
 
@@ -45,7 +45,8 @@ export class ServiceComponent implements OnInit {
     
     constructor(
         private _principleService: PrincipleService,
-        private _PromptService: PromptService,
+        private _promptService: PromptService,
+        private _stepperService: StepperService,
         private _fb: FormBuilder,
         private _cdr: ChangeDetectorRef) { }
     
@@ -53,7 +54,13 @@ export class ServiceComponent implements OnInit {
         this._principleService.getServices()
             .subscribe((services: PrincipleService[]) => this.services = services);
         
-        this._PromptService.showFlyout(this.serviceFlyoutTemplate, {form: this.serviceFlyoutTemplate});
+        this._promptService.showFlyout(this.serviceFlyoutTemplate, {form: this.serviceFlyoutTemplate});
+
+        this._stepperService.navigation.subscribe(step => {
+            debugger
+            this.step = step;
+        });
+
     }
 
 }

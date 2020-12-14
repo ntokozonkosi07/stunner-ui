@@ -30,6 +30,7 @@ import { PrincipleService } from './services/principle-service.service';
 import { NewItemComponent } from './components/items/new-item/new-item.component';
 import { StepperModule } from './components/stepper/stepper.module';
 import { ServiceForm } from './pages/service/forms/service-form/service-form.component';
+import { FlyoutServiceComponent } from './pages/service/flyout-service/flyout-service.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ServiceForm } from './pages/service/forms/service-form/service-form.com
     ItemsComponent,
     ItemComponent,
     NewItemComponent,
-    ServiceForm
+    ServiceForm,
+    FlyoutServiceComponent
   ],
   imports: [
     CommonModule,

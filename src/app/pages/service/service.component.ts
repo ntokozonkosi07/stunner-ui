@@ -11,10 +11,6 @@ import { ServiceForm } from './forms/service-form/service-form.component';
 })
 export class ServiceComponent implements OnInit {
 
-    step: number;
-
-    serviceForm: FormGroup;
-
     private _serviceFlyoutTemplate: TemplateRef<any>;
 
     @ViewChild("serviceFlyoutTemplate", {static: true})
@@ -28,27 +24,11 @@ export class ServiceComponent implements OnInit {
 
     services: PrincipleService[] = [];
 
-    public steps = [
-        {
-            title: 'Service',
-            active: false
-        },
-        {
-            title: 'Products',
-            active: false
-        },
-        {
-            title: 'Confirmation',
-            active: false
-        }
-    ]
+    
     
     constructor(
         private _principleService: PrincipleService,
-        private _promptService: PromptService,
-        private _stepperService: StepperService,
-        private _fb: FormBuilder,
-        private _cdr: ChangeDetectorRef) { }
+        private _promptService: PromptService) { }
     
     ngOnInit(): void {
         this._principleService.getServices()
@@ -56,10 +36,6 @@ export class ServiceComponent implements OnInit {
         
         this._promptService.showFlyout(this.serviceFlyoutTemplate, {form: this.serviceFlyoutTemplate});
 
-        this._stepperService.navigation.subscribe(step => {
-            debugger
-            this.step = step;
-        });
 
     }
 

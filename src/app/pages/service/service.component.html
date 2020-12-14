@@ -5,11 +5,9 @@
 
 <ng-template #serviceFlyoutTemplate>
     <div class="flyout" >
-        <div class="stepper">
-            <stepper [steps]="steps"></stepper>
-        </div>
+        '<flyout-service></flyout-service>
         
-        <service-form *ngIf="step === 0"></service-form>
+        
         
     </div>
 </ng-template>

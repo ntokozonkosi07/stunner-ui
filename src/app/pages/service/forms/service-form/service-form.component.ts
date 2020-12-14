@@ -1,10 +1,12 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StepperService } from 'src/app/components/stepper/stepper.module';
+import { moneyFormatValidator } from './../../../../services/custom-validators/custom-validators.service';
 import { FormGroupConfig } from '../../../../model/form-group.config';
 
 export interface Service {
     name: string;
+    price: number;
 }
 
 @Component({
@@ -23,9 +25,10 @@ export class ServiceForm implements OnInit {
 
     createForm(){
         const config: FormGroupConfig<Service> = {
-            name: ['', [Validators.required]]
+            name: ['', [Validators.required]],
+            price: [null, [Validators.required, moneyFormatValidator]]
         }
-        debugger;
+        
         this.serviceForm = this._fb.group(config);
 
         return this.serviceForm;

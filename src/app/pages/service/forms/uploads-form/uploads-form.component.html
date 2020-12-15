@@ -1,0 +1,22 @@
+<form [formGroup]="uploadForm" (ngSubmit)="submit()" class="upload-form">
+    <div class="drop-zone">
+        <ngx-dropzone (change)="onSelect($event)">
+            <ngx-dropzone-label>Drop an image here or click to select image!</ngx-dropzone-label>            
+        </ngx-dropzone>
+    </div>
+    <div class="uploads">
+        <!-- <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
+            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+          </ngx-dropzone-image-preview> -->
+        <ng-container formArrayName="images">
+            <div  class="item" *ngFor="let u of images.controls; index as i" [style.background-image]="'url('+u.value.imageSrc+')'">
+                <span (click)="close(i)"><i class="fas fa-times"></i></span>
+            </div>
+        </ng-container>
+        
+    </div>
+    <div class="footer">
+        <input type="button" value="prev">
+        <input type="submit" value="next">
+    </div>
+</form>

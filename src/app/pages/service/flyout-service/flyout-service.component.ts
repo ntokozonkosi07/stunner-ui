@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { StepperService } from 'src/app/components/stepper/stepper.module';
 import { ServiceForm } from '../forms/service-form/service-form.component';
 import { StepperBase } from '../forms/stepper-base.interface';
+import { UploadsFormComponent } from '../forms/uploads-form/uploads-form.component';
 
 export class StepItem {
   constructor(public component: Type<any>, public data: any){}
@@ -19,7 +20,7 @@ export class FlyoutServiceComponent implements OnInit {
 
   public steps: StepItem[] = [
     new StepItem(ServiceForm, {title: 'Service'}),
-    new StepItem(ServiceForm, {title: 'Upload'}),
+    new StepItem(UploadsFormComponent, {title: 'Upload'}),
     new StepItem(ServiceForm, {title: 'Confirmation'})
   ]
 
@@ -39,27 +40,24 @@ export class FlyoutServiceComponent implements OnInit {
       this.step = step;
     });
 
-    
+    this.serviceForm = this._fb.group({});
 
     this._stepperService.navigation.subscribe(step => {
+      
       this.stepperContainer.clear();
+      
+      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.steps[step].component);
+      const componentRef = this.stepperContainer.createComponent<StepperBase>(componentFactory);
+
       switch (step) {
         case 0:
-          // this.stepperContainer.createEmbeddedView(this.serviceTemplate);
-          const componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.steps[0].component);
-          this.stepperContainer.clear();
-          const componentRef = this.stepperContainer.createComponent<StepperBase>(componentFactory);
-          debugger;
-          this.serviceForm = this._fb.group({
-            details: componentRef.instance.createFormgroup()
-          });
+          this.serviceForm.registerControl("details", componentRef.instance.createFormgroup());
           break;
         case 1:
-          // this.stepperContainer.createEmbeddedView(this.productTemplate);
-          // this._stepperService.nextPage();
+          this.serviceForm.registerControl("uploads", componentRef.instance.createFormgroup());
           break;
         case 2:
-          // this.stepperContainer.createEmbeddedView(this.confirmationTemplate);
+          this.serviceForm.registerControl("details", componentRef.instance.createFormgroup());
       }
     })
   }

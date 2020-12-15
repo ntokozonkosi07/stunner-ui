@@ -6,11 +6,14 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import { AppRoutingModule } from './app-routing.module';
+
+import { StepperModule } from './components/stepper/stepper.module';
 
 import { AppComponent } from './app.component';
 import { AuthComponent } from './pages/auth/auth.component';
 import { LoginComponent } from './pages/auth/login/login.component';
-import { AppRoutingModule } from './app-routing.module';
 import { ForgotPasswordComponent } from './pages/auth/forgot-password/forgot-password.component';
 import { AuthService } from './services/auth.service';
 import { CustomvalidationService } from './services/validators/custom-validators.service';
@@ -28,9 +31,9 @@ import { ItemComponent } from './components/items/item/item.component';
 import { ItemsComponent } from './components/items/items.component';
 import { PrincipleService } from './services/principle-service.service';
 import { NewItemComponent } from './components/items/new-item/new-item.component';
-import { StepperModule } from './components/stepper/stepper.module';
 import { ServiceForm } from './pages/service/forms/service-form/service-form.component';
 import { FlyoutServiceComponent } from './pages/service/flyout-service/flyout-service.component';
+import { UploadsFormComponent } from './pages/service/forms/uploads-form/uploads-form.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,8 @@ import { FlyoutServiceComponent } from './pages/service/flyout-service/flyout-se
     ItemComponent,
     NewItemComponent,
     ServiceForm,
-    FlyoutServiceComponent
+    FlyoutServiceComponent,
+    UploadsFormComponent
   ],
   imports: [
     CommonModule,
@@ -58,7 +62,8 @@ import { FlyoutServiceComponent } from './pages/service/flyout-service/flyout-se
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    StepperModule
+    StepperModule,
+    NgxDropzoneModule
   ],
   providers: [
     AuthService,

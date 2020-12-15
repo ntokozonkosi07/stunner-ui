@@ -22,6 +22,7 @@
     "@auth0/angular-jwt": "^5.0.1",
     "@fortawesome/fontawesome-free": "^5.15.1",
     "lodash": "^4.17.20",
+    "ngx-dropzone": "^2.3.0",
     "ngx-toastr": "^13.1.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

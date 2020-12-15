@@ -2,7 +2,7 @@
     <ul>
         <li class="stepper-title" *ngFor="let step of steps; let i = index">
             <div class="circle" [ngClass]="{'active': step.active}">{{i+1}}</div>
-            <label>{{step.title}}</label>
+            <label>{{step.data.title}}</label>
         </li>
     </ul>
 </div>
